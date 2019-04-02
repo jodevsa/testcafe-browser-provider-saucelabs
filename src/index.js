@@ -247,7 +247,14 @@ export default {
         var version  = isSelenium(platformInfo) ? platformInfo.browserVersion : platformInfo.os;
         var platform = isSelenium(platformInfo) ? platformInfo['os'] : '';
 
-        return `${name}@${version}${platform ? ':' + platform : ''}`;
+        console.info('');
+
+
+        const alias = `${name}@${version}${platform ? ':' + platform : ''}`;
+
+        console.info('Found alias: ', alias);
+
+        return alias;
     },
 
     _createQuery (capabilities) {
