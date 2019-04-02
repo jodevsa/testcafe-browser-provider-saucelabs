@@ -46,6 +46,7 @@ async function fetchAsset (assetNameParts) {
         return JSON.parse(response.body);
     }
     catch (e) {
+        console.warn('Could not fetch assets: ', url, e);
         return null;
     }
 }
@@ -68,6 +69,7 @@ async function getAssetData (assetNameParts, unfoldingLevel = Infinity) {
         assetDataTree = await fetchAsset(assetNameParts);
     }
     catch (e) {
+        console.error('Could not fetch assets: ', e);
         return [];
     }
 
