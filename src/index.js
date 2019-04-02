@@ -247,14 +247,7 @@ export default {
         var version  = isSelenium(platformInfo) ? platformInfo.browserVersion : platformInfo.os;
         var platform = isSelenium(platformInfo) ? platformInfo['os'] : '';
 
-        console.info('');
-
-
-        const alias = `${name}@${version}${platform ? ':' + platform : ''}`;
-
-        console.info('Found alias: ', alias);
-
-        return alias;
+        return `${name}@${version}${platform ? ':' + platform : ''}`;
     },
 
     _createQuery (capabilities) {
@@ -397,8 +390,7 @@ export default {
     },
 
     async isValidBrowserName (browserName) {
-        return browserName.startsWith('saucelabs:');
-        // return parseCapabilities(browserName).length === 1 && !!this._filterPlatformInfo(this._createQuery(browserName)).length;
+        return parseCapabilities(browserName).length === 1 && !!this._filterPlatformInfo(this._createQuery(browserName)).length;
     },
 
     async getBrowserList () {
