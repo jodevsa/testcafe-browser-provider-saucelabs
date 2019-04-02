@@ -388,7 +388,8 @@ export default {
     },
 
     async isValidBrowserName (browserName) {
-        return parseCapabilities(browserName).length === 1 && !!this._filterPlatformInfo(this._createQuery(browserName)).length;
+        return browserName.startsWith('saucelabs:');
+        // return parseCapabilities(browserName).length === 1 && !!this._filterPlatformInfo(this._createQuery(browserName)).length;
     },
 
     async getBrowserList () {
