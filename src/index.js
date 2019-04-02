@@ -24,13 +24,15 @@ const MAC_OS_MAP = {
     'OS X Yosemite':     'OS X 10.10'
 };
 
+const SAUCE_API_HOST = process.env['SAUCE_API_HOST'] || 'saucelabs.com';
+
 const promisify = fn => pify(fn, Promise);
 const request   = promisify(requestAPI, Promise);
 
 const formatAssetPart    = (str, filler) => str.toLowerCase().replace(/[\s.]/g, filler);
 const getAssetNameEnding = (part1, part2) => part1 && part2 ? formatAssetPart(part1, '_') + '_' + formatAssetPart(part2, '-') : '';
 const getAssetName       = (automationApi, ...args) => `${automationApi}_${getAssetNameEnding(...args)}`;
-const getAssetUrl        = (...args) => `https://wiki-assets.saucelabs.com/data/${getAssetName(...args)}.json`;
+const getAssetUrl        = (...args) => `https://wiki-assets.${SAUCE_API_HOST}/data/${getAssetName(...args)}.json`;
 
 const isSelenium   = platformInfo => platformInfo.automationApi === 'selenium';
 const isAppium     = platformInfo => platformInfo.automationApi === 'appium';
