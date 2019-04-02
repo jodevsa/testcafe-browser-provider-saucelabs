@@ -188,7 +188,7 @@ export default {
             .then(async connector => {
                 if (!connector) {
                     connector = new SauceLabsConnector(process.env['SAUCE_USERNAME'], process.env['SAUCE_ACCESS_KEY'], {
-                        connectorLogging: false
+                        connectorLogging: true
                     });
 
                     await connector.connect();
