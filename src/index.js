@@ -62,7 +62,14 @@ function unfoldTreeNode (node, level = Infinity) {
 }
 
 async function getAssetData (assetNameParts, unfoldingLevel = Infinity) {
-    var assetDataTree = await fetchAsset(assetNameParts);
+    let assetDataTree;
+
+    try {
+        assetDataTree = await fetchAsset(assetNameParts);
+    }
+    catch (e) {
+        return [];
+    }
 
     if (!assetDataTree)
         return [];
