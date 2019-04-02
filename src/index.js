@@ -382,6 +382,8 @@ export default {
     },
 
     async closeBrowser (id) {
+        console.info('Closing browser with id...', id);
+
         var connector = await this._getConnector();
 
         await connector.stopBrowser(this.openedBrowsers[id]);
