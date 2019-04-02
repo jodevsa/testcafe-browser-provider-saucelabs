@@ -24,7 +24,7 @@ const MAC_OS_MAP = {
     'OS X Yosemite':     'OS X 10.10'
 };
 
-const SAUCE_API_HOST = process.env['SAUCE_API_HOST'] || 'saucelabs.com';
+const SAUCE_API_HOST = 'saucelabs.com';
 
 const promisify = fn => pify(fn, Promise);
 const request   = promisify(requestAPI, Promise);
