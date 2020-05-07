@@ -17,7 +17,9 @@
     "utils"
   ],
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard"
   },
   "keywords": [
     "testcafe",
@@ -33,7 +35,7 @@
     "pify": "^2.3.0",
     "pinkie": "^2.0.4",
     "request": "^2.74.0",
-    "saucelabs-connector": "github:fpoppinga/saucelabs-connector#eu-datacenter-package"
+    "saucelabs-connector": "github:jodevsa/saucelabs-connector"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
