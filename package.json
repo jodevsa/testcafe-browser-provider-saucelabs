@@ -18,8 +18,8 @@
   ],
   "scripts": {
     "test": "gulp test",
-    "publish-please": "publish-please",
-    "prepublish": "publish-please guard"
+    "prepublish": "gulp build",
+    "prepare": "gulp build"
   },
   "keywords": [
     "testcafe",
